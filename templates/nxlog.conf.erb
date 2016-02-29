@@ -1,0 +1,23 @@
+# THIS FILE IS MANAGED BY PUPPET #
+
+## This is a sample configuration file. See the nxlog reference manual about the
+## configuration options. It should be installed locally and is also available
+## online at http://nxlog.org/nxlog-docs/en/nxlog-reference-manual.html
+
+## Please set the ROOT to the folder your nxlog was installed into,
+## otherwise it will not start.
+
+
+define ROOT <%= @root %>
+
+Moduledir <%= @module_dir %>
+CacheDir <%= @cache_dir %>
+Pidfile <%= @pid_file %>
+SpoolDir <%= @spool_dir %>
+LogFile <%= @log_file %>
+include %ROOT%\conf.d\\*.conf
+
+# only extenstion currently implemented by the puppet module
+<Extension syslog>
+    Module	xm_syslog
+</Extension>
