@@ -2,13 +2,13 @@
   "name": "dschaaff-nxlog",
   "version": "0.1.0",
   "author": "Daniel Schaaff",
-  "summary": null,
+  "summary": "Puppet module for managing nxlog on windows",
   "license": "Apache 2.0",
-  "source": "",
-  "project_page": null,
-  "issues_url": null,
-  "dependencies": [{
-    "name": "puppetlabs-stdlib","version_requirement": ">= 1.0.0"}, 
+  "source": "https://github.com/dschaaff/puppet-nxlog.git",
+  "project_page": "https://github.com/dschaaff/puppet-nxlog.git",
+  "issues_url": "https://github.com/dschaaff/puppet-nxlog.git",
+  "dependencies": [
+    {"name": "puppetlabs-stdlib","version_requirement": ">= 1.0.0"},
     {"name": "puppetlabs-concat"},
     {"name":"chocolatey-chocolatey","version_requirement": ">=1.2.1"}
     ]
