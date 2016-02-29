@@ -1,4 +1,6 @@
 # create an nxlog.conf route
+# more info found at http://nxlog-ce.sourceforge.net/nxlog-docs/en/nxlog-reference-manual.html#config_routes
+
 define nxlog::route (
   $route_name     = undef,
   $route_path     = undef,
@@ -13,6 +15,6 @@ define nxlog::route (
   file {"${root}/conf.d/${route_name}.conf":
       ensure  => present,
       content => template('nxlog/route.erb')
-    } 
+    }
 
 }
