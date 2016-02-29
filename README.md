@@ -15,46 +15,67 @@
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves.
-This is your 30 second elevator pitch for your module. Consider including
-OS/Puppet version it works with.
+This module manages the installation and configuration of nxlog community
+edition on windows hosts.
 
 ## Module Description
 
-If applicable, this section should have a brief description of the technology
-the module integrates with and what that integration enables. This section
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?"
+This module manages the installation and configuration of nxlog community
+edition on Windows hosts. A common use case is to use this to ship off logs
+to something like splunk, or logstash.
 
-If your module has a range of functionality (installation, configuration,
-management, etc.) this is the time to mention it.
+Manages the following
+- nxlog config files
+- nxlog inputs
+- nxlog outputs
+- nxlog routes
 
 ## Setup
 
 ### What nxlog affects
 
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form.
+* nxlog-ce package installation
+* nxlog.conf
+* nxlog inputs
+* nxlog outputs
+* nxlog routes
 
-### Setup Requirements **OPTIONAL**
+### Setup Requirements
 
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
+Including the base class will handle the installation of nxlog but doesn't do
+much else on its own.
+
+`include nxlog`
 
 ### Beginning with nxlog
 
-The very basic steps needed for a user to get the module up and running.
+Include the base class and any inputs, outputs, and routes.
 
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
+```
+include nxlog
+nxlog::input {'eventlogs':
+  input_name   => 'eventlogs',
+  input_module => 'im_msvistalog',
+  query        => '<QueryList><Query Id="0"><Select Path="Security">*</Select></Query>y</QueryList>',
+  }
+nxlog::output {'out':
+  output_name   => 'out',
+  output_module => 'om_tcp',
+  output_host    => '192.168.1.1',
+  output_port   => '514',
+  output_exec   => 'to_syslog_snare();',
+  }
+# must route to existing output defined above
+nxlog::route {'route1':
+  route_name => 'route1',
+  route_path => 'eventlogs => out',
+}
+```
 
 ## Usage
 
-Put the classes, types, and resources for customizing, configuring, and doing
-the fancy stuff with your module here.
+For more details on the use of nxlog and its parameters please view
+[the documentation](https://nxlog.org/documentation/nxlog-community-edition-reference-manual-v20928)
 
 ## Reference
 
@@ -63,17 +84,6 @@ This section should include all of the under-the-hood workings of your module so
 people know what the module is touching on their system but don't need to mess
 with things. (We are working on automating this section!)
 
-## Limitations
-
-This is where you list OS compatibility, version compatibility, etc.
-
 ## Development
 
-Since your module is awesome, other users will want to play with it. Let them
-know what the ground rules for contributing are.
-
-## Release Notes/Contributors/Etc **Optional**
-
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You may also add any additional sections you feel are
-necessary or important to include here. Please use the `## ` header.
+I welcome all contributions and appreciate pull requests.
