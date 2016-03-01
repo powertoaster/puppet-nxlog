@@ -77,12 +77,76 @@ nxlog::route {'route1':
 For more details on the use of nxlog and its parameters please view
 [the documentation](https://nxlog.org/documentation/nxlog-community-edition-reference-manual-v20928)
 
+
+
 ## Reference
 
-Here, list the classes, types, providers, facts, etc contained in your module.
-This section should include all of the under-the-hood workings of your module so
-people know what the module is touching on their system but don't need to mess
-with things. (We are working on automating this section!)
+### Classes
+
+#### Public Classes
+* `nxlog`
+
+#### Private Classes
+* `nxlog::config`
+* `nxlog::params`
+* `nxlog::service`
+* `nxlog::install`
+
+### Defined Types
+* `nxlog::input`
+* `nxlog::output`
+* `nxlog::route`
+
+### Class: `nxlog`
+This is the main class. It will install nxlog and manage the service.
+
+#### Parameters
+* `root`: Sets the root install path in nxlog.conf 
+  - Default: ` "C:\\Program Files (x86)\\nxlog" `
+* `module_dir`: By default the nxlog binaries have a compiled-in value for the directory to search for loadable modules. This can be overrridden with this directive. The module directory contains subdirectories for each module type (extension, input, output, processor) and the module binaries are located in those.
+  - Default: `%ROOT%\modules`
+* `cache_dir`: Specifies where the cache file is written to
+  - Default: `%ROOT\data`
+* `pid_file`: Directive has no effect on Windows
+  - Default: `%ROOT%\data\nxlog.pid`
+* `spool_dir`: nxlog will change its working directory to the value specified with this directive. This is useful with files created through relative filenames, e.g. with om_file and in case of core dumps. This directive has no effect with the nxlog-processor.
+  - Default: `%ROOT%\data`
+* `log_file`: Specifies where nxlog will write its internal log file
+  - Default: `%ROOT%\data\nxlog.log`
+
+### Defined Type: `nxlog::input`
+
+#### Paramters
+* `input_name`: *Required* What the input is called. This is how it will be referenced in route directives
+  - Default: undef
+* `input_module`: *Required* What nxlog module the input will use.
+  - Default: undef
+* `query`: *Optional* 
+  - Default: undef
+
+### Defined Type: `nxlog::output`
+
+#### Paramters
+* `output_name`: *Required* What the output will be called.
+  - Default: undef
+* `output_module`: *Required* What nxlog module the output will use.
+  - Default: undef
+* `output_host`: *Required* Hostname or IP of the output destination host.
+  - Default: undef
+* `output_port`: *Required* Destination port
+  - Default: undef
+* `output_exec`: *Required*
+  - Default: undef
+
+### Defined Type: `nxlog::route`
+
+#### Paramters
+* `route_name`: *Required* What the route will be called.
+  - Default: undef
+* `route_path`: *Required* How the data will be route. Should take the form of `input_name => output_name`. Input_names should be comma separated when there is more than one.
+  - Default: undef
+* `route_priority`: *optional*
+  - Default: undef
 
 ## Development
 

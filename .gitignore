@@ -14,7 +14,8 @@ tmtags
 *.swp
 tags
 
-# geppetto
+## geppetto
 .project
 
+## Project
 pkg/
