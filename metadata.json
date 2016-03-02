@@ -7,6 +7,7 @@
   "source": "https://github.com/dschaaff/puppet-nxlog.git",
   "project_page": "https://github.com/dschaaff/puppet-nxlog",
   "issues_url": "https://github.com/dschaaff/puppet-nxlog/issues",
+  "tags": ["loggin", "nxlog", "windows", "eventlog"],
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
