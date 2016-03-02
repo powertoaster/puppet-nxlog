@@ -1,6 +1,6 @@
+# set the default values
 class nxlog::params {
   if $::osfamily == 'windows' {
-    $package_name   = "nxlog-ce-2.9.1504.msi"
     $root           = "C:\\Program Files (x86)\\nxlog"
     $module_dir     = '%ROOT%\modules'
     $cache_dir      = '%ROOT\data'

@@ -1,7 +1,7 @@
 # use chocolatey to install nxlog msi
 class nxlog::install{
   package {'nxlog':
-    ensure => present,
+    ensure   => present,
     provider => 'chocolatey',
   }
   # copy installer to client
