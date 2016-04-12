@@ -3,7 +3,10 @@ define nxlog::input (
   $input_name   = undef,
   $input_module = undef,
   $query        = undef,
-  $root         = $::nxlog::root
+  $root         = $::nxlog::root,
+  $input_file   = undef,
+  $SavePos      = true,
+  $input_type   = undef,
   )
 {
   if ! defined(Class['nxlog']) {
