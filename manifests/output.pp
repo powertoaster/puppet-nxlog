@@ -8,6 +8,7 @@ define nxlog::output (
   $output_host   = undef,
   $output_port   = undef,
   $output_exec   = undef,
+  $output_type   = undef,
   $root          = $::nxlog::root
   )
   {

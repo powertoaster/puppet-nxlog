@@ -7,6 +7,7 @@ class nxlog::params {
     $pid_file       = '%ROOT%\data\nxlog.pid'
     $spool_dir      = '%ROOT%\data'
     $log_file       = '%ROOT%\data\nxlog.log'
+    $extensions     = undef
   }
   else {
     notify {"module is not supported on ${::operatingsystem}":}

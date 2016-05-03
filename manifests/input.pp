@@ -5,7 +5,7 @@ define nxlog::input (
   $query        = undef,
   $root         = $::nxlog::root,
   $input_file   = undef,
-  $SavePos      = true,
+  $savePos      = true,
   $input_type   = undef,
   )
 {

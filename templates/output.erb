@@ -2,5 +2,10 @@
     Module  <%= @output_module %>
     Host    <%= @output_host %>
     Port    <%= @output_port %>
+<% if @output_exec -%>
     Exec	<%= @output_exec %>
+<% end -%>
+<% if @output_type -%>
+    OutputType <%= @output_type %>
+<% end -%>
 </Output>
