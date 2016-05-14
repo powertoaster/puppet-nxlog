@@ -1,3 +1,11 @@
+# 2016-05-13 - Release 0.2.0
+- Can now use extensions
+- Can now use output types
+- SavePos does not follow naming convention. Fixed
+- Newlines for every if/end in the erb files. Fixed
+- Additional unwanted spaces for every if/end in the erb files. Fixed.
+(mzhaase)
+
 # 2016-04-12 - Release 0.1.7
 - minor metadata fix
 # 2016-04-12 - Release 0.1.6
