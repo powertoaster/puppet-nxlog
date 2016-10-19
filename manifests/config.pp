@@ -7,7 +7,7 @@ class nxlog::config (
   )inherits nxlog::params
   {
   assert_private()
-  
+
   file {"${root}/conf.d":
     ensure  => directory,
     require => Class['nxlog::install']
