@@ -14,8 +14,13 @@ tmtags
 *.swp
 tags
 
-## geppetto
-.project
+## fixtures
+fixtures
 
-## Project
-pkg/
+## junit
+results.xml
+
+## Bundler
+Gemfile.lock
+.bundle
+vendor/
