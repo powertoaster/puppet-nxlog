@@ -1,5 +1,7 @@
 # nxlog
 
+[![Build Status](https://travis-ci.org/dschaaff/puppet-nxlog.svg?branch=master)](https://travis-ci.org/dschaaff/puppet-nxlog)
+
 #### Table of Contents
 
 1. [Overview](#overview)
@@ -101,7 +103,7 @@ For more details on the use of nxlog and its parameters please view
 This is the main class. It will install nxlog and manage the service.
 
 #### Parameters
-* `root`: Sets the root install path in nxlog.conf 
+* `root`: Sets the root install path in nxlog.conf
   - Default: ` "C:\\Program Files (x86)\\nxlog" `
 * `module_dir`: By default the nxlog binaries have a compiled-in value for the directory to search for loadable modules. This can be overrridden with this directive. The module directory contains subdirectories for each module type (extension, input, output, processor) and the module binaries are located in those.
   - Default: `%ROOT%\modules`
@@ -121,7 +123,7 @@ This is the main class. It will install nxlog and manage the service.
   - Default: undef
 * `input_module`: *Required* What nxlog module the input will use.
   - Default: undef
-* `query`: *Optional* 
+* `query`: *Optional*
   - Default: undef
 
 ### Defined Type: `nxlog::output`
