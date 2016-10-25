@@ -1,3 +1,6 @@
+# 2016-10-25 - Release 0.3.2
+- fix metadata file
+
 # 2016-10-25 - Release 0.3.1
 - Add travis-ci
 - lint fixes
