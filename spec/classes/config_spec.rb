@@ -1,14 +1,14 @@
 require 'spec_helper'
 require 'shared_contexts'
 
-describe 'nxlog::config' do 
-  
-  let(:params) do 
-    {
-      :root => "C:/nxlog"
-    }
-  end
-  
+describe 'nxlog::config' do
+
+  let(:pre_condition) do
+      "class {'::nxlog':
+        root => 'C:/nxlog'
+        }"
+    end
+
   it 'should create the config directory' do
     is_expected.to contain_file("C:/nxlog/conf.d")
       .with({

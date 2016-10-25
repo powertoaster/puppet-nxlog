@@ -8,5 +8,6 @@ describe 'nxlog::install' do
             "ensure" => "present",
             "provider" => "chocolatey",
             })
-    end  
+    end
+at_exit { RSpec::Puppet::Coverage.report! }      
 end
