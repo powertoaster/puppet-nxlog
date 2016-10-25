@@ -1,3 +1,7 @@
+# 2016-10-25 - Release 0.3.1
+- Add travis-ci
+- lint fixes
+
 # 2016-10-25 - Release 0.3.0
 - Fix extension evaluation in nxlog.conf.erb
 - Fix some variable scoping

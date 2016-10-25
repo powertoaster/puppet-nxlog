@@ -13,7 +13,7 @@ define nxlog::route (
       }
 
   validate_string($route_name)
-  
+
   file {"${root}/conf.d/${route_name}.conf":
       ensure  => present,
       content => template('nxlog/route.erb')
