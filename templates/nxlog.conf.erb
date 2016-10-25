@@ -1,7 +1,7 @@
 # THIS FILE IS MANAGED BY PUPPET #
 
-## See the nxlog reference manual about the configuration options. It should be 
-## installed locally and is also available online at 
+## See the nxlog reference manual about the configuration options. It should be
+## installed locally and is also available online at
 ## http://nxlog.org/nxlog-docs/en/nxlog-reference-manual.html
 
 ## Please set the ROOT to the folder your nxlog was installed into,
@@ -14,15 +14,15 @@ Pidfile <%= @pid_file %>
 SpoolDir <%= @spool_dir %>
 LogFile <%= @log_file %>
 
-<% if ext = scope.lookupvar("nxlog::extensions") and ext.any? -%>
-<% for e in ext -%>
-<Extension <%= e %>>
-    Module xm_<%= e %>
-</Extension>
-<% end -%>
+<% if @extensions %>
+  <% @extensions.each do |e| -%>
+  <Extension <%= e %>
+      Module xm_<%= e %>
+  </Extension>
+  <% end -%>
 <% else -%>
-<Extension syslog>
-    Module	xm_syslog
-</Extension>
+  <Extension syslog>
+      Module	xm_syslog
+  </Extension>
 <% end -%>
 include %ROOT%\conf.d\\*.conf

@@ -3,8 +3,14 @@
 # this private class is not intended to be called directly
 
 class nxlog::config (
-  $root = $nxlog::params::root,
-  )inherits nxlog::params
+  $root       = $::nxlog::root,
+  $module_dir = $::nxlog::module_dir,
+  $cache_dir  = $::nxlog::cache_dir,
+  $pid_file   = $::nxlog::pid_file,
+  $spool_dir  = $::nxlog::spool_dir,
+  $log_file   = $::nxlog::log_file,
+  $extensions = $::nxlog::extensions
+  )
   {
   assert_private()
 
