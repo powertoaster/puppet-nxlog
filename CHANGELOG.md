@@ -1,3 +1,8 @@
+# 2016-10-25 - Release 0.3.0
+- Fix extension evaluation in nxlog.conf.erb
+- Fix some variable scoping
+- Add some basic rspec tests
+
 # 2016-05-13 - Release 0.2.0
 - Can now use extensions
 - Can now use output types
@@ -14,7 +19,7 @@
 - fix tag metadata
 
 # 2016-03-02 - Release 0.1.4
-- add tags to metadata 
+- add tags to metadata
 
 # 2016-03-02 - Release 0.1.3
 - puppet-lint fixes
