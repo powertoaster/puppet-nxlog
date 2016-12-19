@@ -16,7 +16,7 @@ LogFile <%= @log_file %>
 
 <% if @extensions %>
   <% @extensions.each do |e| -%>
-  <Extension <%= e %>
+  <Extension <%= e %>>
       Module xm_<%= e %>
   </Extension>
   <% end -%>
