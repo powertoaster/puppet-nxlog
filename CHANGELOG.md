@@ -1,3 +1,6 @@
+# 2016-12-18 - Release 0.3.3
+- fix typo in conf template, thanks jonapich!
+
 # 2016-10-25 - Release 0.3.2
 - fix metadata file
 
