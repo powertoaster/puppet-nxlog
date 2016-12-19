@@ -1,6 +1,6 @@
 {
   "name": "dschaaff-nxlog",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "author": "Daniel Schaaff",
   "summary": "Puppet module for managing nxlog on windows",
   "license": "Apache-2.0",
@@ -20,7 +20,7 @@
   ],
   "operatingsystem_support": [
     {
-      "operatingsystem": "windows"
+      "operatingsystem": "Windows"
     }
   ],
   "requirements": [

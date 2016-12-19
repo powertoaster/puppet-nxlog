@@ -23,14 +23,22 @@ describe 'nxlog::input' do
       {
         'input_name' => 'eventlogs',
         'input_module' => 'im_msvistalog',
-        'query' => '*'
+        'query' => '*',
+        'input_file' => 'foo',
+        'input_type' => 'bar',
       }
     end
 
     it 'should containt the input config file' do
 
-      is_expected.to contain_file('C:/nxlog/conf.d/eventlogs.conf')
+      is_expected.to contain_file('C:/nxlog/conf.d/eventlogs.conf').with_content(
+        /<Input eventlogs>/,
+        /Module im_msvistalog/,
+        /Query \*/,
+        /File foo/,
+        /InputType bar/
+        )
     end
-    
+
   end
 end

@@ -17,6 +17,5 @@ describe 'nxlog::service'  do
           'enable' => 'true'
           })
     end
-  at_exit { RSpec::Puppet::Coverage.report! }
   end
 end
